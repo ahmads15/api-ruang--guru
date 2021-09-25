@@ -6,14 +6,14 @@ expect.extend(matchers);
 
 let response;
 describe('Checking Result Search Data on SkillAcademy', () => {
-    test.skip('User get data dengan minimal price 300000', async () => {
+    test('User get data dengan minimal price 300000', async () => {
         response = await endpoints.apiGetDataMinPrice300();
         expect(response.status).toEqual(200);
         expect(response.body.data.data[0].price).toBeGreaterThanOrEqual(300000);
         expect(response.body).toMatchSchema(schema.getDataSchema);
         expect(response.body).toMatchSnapshot();
     });
-    test.skip('User get data dengan minimal price 300000 dan maximal price 500000', async () => {
+    test('User get data dengan minimal price 300000 dan maximal price 500000', async () => {
         response = await endpoints.apiGetDataMinPrice300500();
         expect(response.status).toEqual(200);
         expect(response.body.data.data[0].price).toBeLessThanOrEqual(500000);
@@ -27,7 +27,7 @@ describe('Checking Result Search Data on SkillAcademy', () => {
         expect(response.body).toMatchSchema(schema.getDataSchema);
         expect(response.body).toMatchSnapshot();
     });
-    test.skip('User dapat melihat data pada page ke 5 dengan page size 100', async () => {
+    test('User dapat melihat data pada page ke 5 dengan page size 100', async () => {
         response = await endpoints.apiGetDataPagenPageSize();
         expect(response.status).toEqual(200);
         var dataPage = response.body.data.page;
